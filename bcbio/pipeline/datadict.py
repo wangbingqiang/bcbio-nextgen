@@ -94,6 +94,7 @@ LOOKUPS = {
     "express_counts": {"keys": ['express_counts']},
     "isoform_to_gene": {"keys": ['isoform_to_gene']},
     "fusion_mode": {"keys": ['config', 'algorithm', 'fusion_mode']},
+    "fusion_caller": {"keys": ['config', 'algorithm', 'fusion_caller']},
     "dexseq_counts": {"keys": ['dexseq_counts']},
     "description": {"keys": ['description']},
     "aligner": {"keys": ['config', 'algorithm', 'aligner']},
@@ -188,6 +189,8 @@ LOOKUPS = {
     "tools_off": {"keys": ["config", "algorithm", "tools_off"], "default": [], "always_list": True},
     "tools_on": {"keys": ["config", "algorithm", "tools_on"], "default": [], "always_list": True},
     "cwl_reporting": {"keys": ["config", "algorithm", "cwl_reporting"]},
+    "ericscript_env": {"keys": ["config", "resources", "ericscript", "env"]},
+    "ericscript_db": {"keys": ["config", "resources", "ericscript", "db"]},
 }
 
 def get_batches(data):
