@@ -225,7 +225,7 @@ def _check_for_conda_problems():
     for l in ["libgomp.so.1", "libquadmath.so"]:
         if not os.path.exists(os.path.join(lib_dir, l)):
             subprocess.check_call([conda_bin, "install", "-f",
-                                   "--yes", "-c", "bioconda", "-c", "conda-forge", "libgcc-ng"])
+                                   "--yes", "libgcc-ng"])
 
 def _update_conda_packages():
     """If installed in an anaconda directory, upgrade conda packages.
@@ -238,7 +238,7 @@ def _update_conda_packages():
         os.remove(req_file)
     subprocess.check_call(["wget", "-O", req_file, "--no-check-certificate", REMOTES["requirements"]])
     subprocess.check_call([conda_bin, "install", "--quiet", "--yes",
-                           "-c", "bioconda", "-c", "conda-forge", "--file", req_file])
+                           "--file", req_file])
     if os.path.exists(req_file):
         os.remove(req_file)
     return os.path.dirname(os.path.dirname(conda_bin))
@@ -249,7 +249,7 @@ def _update_conda_devel():
     conda_bin = _get_conda_bin()
     assert conda_bin, "Could not find anaconda distribution for upgrading bcbio"
     subprocess.check_call([conda_bin, "install",
-                           "--quiet", "--yes", "-c", "bioconda", "-c", "conda-forge",
+                           "--quiet", "--yes",
                            "bcbio-nextgen>=%s" % version.__version__.replace("a0", "a")])
     return os.path.dirname(os.path.dirname(conda_bin))
 
