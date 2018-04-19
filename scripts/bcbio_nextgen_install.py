@@ -75,9 +75,8 @@ def install_conda_pkgs(anaconda, args):
         subprocess.check_call([anaconda["conda"], "install", "--yes", "nomkl"])
     subprocess.check_call([anaconda["conda"], "install", "--yes", "conda>=4.4"])
     subprocess.check_call([anaconda["conda"], "install", "--yes",
-                           "-c", "conda-forge", "-c", "bioconda", "--only-deps", "bcbio-nextgen"])
+                           "--only-deps", "bcbio-nextgen"])
     subprocess.check_call([anaconda["conda"], "install", "--yes",
-                           "-c", "conda-forge", "-c", "bioconda",
                            "--file", os.path.basename(REMOTES["requirements"])])
     return os.path.join(anaconda["dir"], "bin", "bcbio_nextgen.py")
 
